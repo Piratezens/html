@@ -1,0 +1,134 @@
+:root
+{
+   --fontfam:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+}
+body{
+    background-color:black;
+    color:whitesmoke;
+    font-family: var(--fontfam);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    position:relative;
+}
+.input-area{
+    background-color:white; 
+    color:black;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    
+    justify-content:center;
+    position:absolute;
+    
+    top:25%;
+    left:19%;
+    right:2%;
+    
+    height:auto;
+    border:2px solid rgba(45, 77, 194, 0.818);
+    border-radius: 20px;
+    padding:15px 0px 5px 5px;
+margin-top:15px;
+    
+    
+}
+input{
+    
+    font-family:var(--fontfam);
+    font-size:12px;
+    font-weight:400;
+    letter-spacing:1px;
+    color:black;
+    background-color:whitesmoke;
+    margin:5px;
+    padding:2px;
+    width:80%;
+    border:2px solid black;
+    border-radius: 5px;
+    
+}
+#btn{
+    background-color: black;
+    font-family:var(--fontfam);
+    font-size:12px;
+    font-weight:400;
+    letter-spacing:1px;
+    color:whitesmoke;
+    position:static;
+    margin:2px 3px 5px 65px;
+    border:2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transform:scale(1);
+    transition:  color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+
+}
+#btn:hover{
+    background-color:whitesmoke;
+    color:black;
+    transform:scale(1.085);
+}
+#intro{
+    display:block;
+     position:absolute;
+  padding:5px;
+    
+    left:19%;
+    right:2%;
+    font-family:'Dancing Script', cursive;
+    font-size:25px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:whitesmoke;
+    
+    top:1%;
+    margin-bottom: 5px;
+
+}
+@media((max-width:400px)and (min-width:70px))
+{
+#intro{
+    font-size:19px;
+    
+     font-weight:500;
+       padding:5px;
+        left: 5%;
+        right: 5%;
+
+}
+ .input-area {
+
+        left: 5%;
+        right: 5%;
+        top: 25%;
+        height: auto;
+    }
+    .input-row{
+    display:inline;
+}
+#btn{
+    margin:2px 3px 5px 6px;
+}
+}
+@media(min-width:1200px)
+{
+     #intro{
+         font-size:30px;
+         font-weight:500;
+         padding:5px;
+         left: 50%;
+         right: 3%;
+     }
+    .input-area{
+        top:35%;
+        left: 50%;
+        right: 3%;
+        top: 25%;
+        height: auto;
+    }
+    
+}

@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student Manangement System</title>
+    <link rel="stylesheet" href="student_management_system.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="input">
+        <h1 id="heading">Student Management System</h1>
+        <div>
+            <label for="std_id">ID:</label>
+            <input type="number" id="std_id" placeholder="Enter your student id">
+        </div>
+        <div>
+            <button type="button" onclick="submit()">Submit</button>
+        </div>
+    </div>
+
+    <div class="result" id="result">
+        <h1 id="heading">YOUR RESULT</h1>
+        <div id="name"></div>
+        <div id="id"></div>
+
+        <div id="score"></div>
+    </div>
+
+    <script src="stmanagement.js"></script>
+</body>
+</html>

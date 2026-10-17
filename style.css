@@ -1,0 +1,53 @@
+body {
+    background-color:black;
+}
+
+h1 {
+    text-align: center;
+    color: whitesmoke;
+}
+
+h2 {
+    text-align: center;
+    color: whitesmoke;
+}
+
+p {
+    text-align: center;
+    color: rgb(176, 134, 134);
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+    color: rgb(228, 217, 217);
+}
+
+#skills {
+    color: whitesmoke;
+}
+
+#projects {
+    text-align: center;
+    color: rgb(179, 160, 125);
+}
+
+#future-goals p {
+    text-align: center;
+    color: rgb(224, 231, 94);
+} 
+.navbar{
+    text-align: center;
+    background-color:black;
+
+    color:white;
+    padding:90px;
+    font-size:20px;
+    margin:5px 5px 15px 5px;
+    border: 1px solid white;
+
+
+
+
+
+}

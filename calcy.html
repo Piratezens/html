@@ -1,0 +1,39 @@
+
+<html>
+        <head>
+            <title>Calculator</title>
+            <link rel="stylesheet" href="calcy.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <script src="calcy.js" defer></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+        </head>
+        <body> 
+            <div id="intro">
+            <p  >"While a score doesn’t define you, it is the first step toward tracking your performance."</p>
+
+            </div>
+              <div class="input-area">
+               <div class="input-row">
+                 <label for ="name"> NAME : </label>
+                <input type="text" id="name" placeholder="ENTER YOUR NAME">
+               </div>
+                <div class="input-row">
+                    <label for="email">EMAIL :</label>
+                <input type="email" id="email" placeholder="ENTER YOUR GMAIL">
+                </div>
+                <div class="input-row">
+                 <label for="score">SCORE:</label>
+                <input type="number" id="score" placeholder="ENTER YOUR SCORE"  min="0"
+                max="100"  step="1">
+                </div>
+            
+                
+                 <div  >
+                    <button id="btn" onclick="submit()">Show Result</button>
+                 </div>
+                <p id="result">   </p>
+              </div>
+        </body>
+</html>

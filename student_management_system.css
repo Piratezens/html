@@ -1,0 +1,78 @@
+body{
+    background-color:black;
+    color:white;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    position: relative;
+}
+#input{
+    border:4px solid rgb(91, 2, 2);
+    border-radius:13px;
+    background-color:white;
+    color:black;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    justify-content: center;
+    position:absolute;
+    top:25%;
+    left:33%;
+    right:2%;
+    height:40%;
+    width:63%;
+    padding-left:10px;
+    padding-bottom:10px;
+}
+button{
+    font-size: 15px;
+    font-weight:300;
+    width:min-content;
+    justify-content:center;
+    position:absolute;
+    left:57px;
+    border-radius:7px;
+    transform:scale(1);
+    background-color: black;
+    color:whitesmoke;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+button:hover{
+    background-color:rgb(218, 212, 223);
+    transform:scale(1.1);
+    color:black;
+}
+input{
+    width:min-content;
+    position:absolute;
+    left:57px;
+    border-radius:5px;
+    color:black;
+}
+#heading{
+    font-family:'Dancing Script', cursive;
+}
+.result{
+    visibility: hidden;
+}
+#result{
+    border:4px solid rgb(45, 4, 81);
+    border-radius:10px;
+    background-color:black;
+    color:whitesmoke;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    justify-content: center;
+    position:absolute;
+    top:25%;
+    left:33%;
+    right:2%;
+    height:40%;
+    width:63%;
+    padding-left:10px;
+    padding-bottom:10px;
+}
