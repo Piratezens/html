@@ -1,0 +1,18 @@
+#parent{
+   
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+
+}
+.changer{
+     height:100px;
+    width:100px;
+    color:whitesmoke;
+    
+}
+
+body{
+    background-color:black;
+    color:aliceblue;
+}

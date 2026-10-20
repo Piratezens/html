@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM_Creation</title>
+</head>
+<body style="background-color: black; color:aliceblue  ">
+    <ul class="language">
+        <li>Javascript</li>
+        
+    </ul>
+
+    
+</body>
+<script>
+//    const div= document.createElement('div')
+//    console.log(div);
+//    div.className="main"
+//    div.id=Math.round(Math.random()*10)+1;
+//    div.style.backgroundColor="green"
+ 
+//    const addText  =  document.createTextNode("Hello_Dom");
+//    div.appendChild(addText)
+   
+//    div.style.padding="15px"
+//    div.style.color="black"
+//    document.body.appendChild(div)
+
+function addLanguage(langName){
+     const li=document.createElement('li');
+     li.appendChild(document.createTextNode(`${langName}`))
+
+     document.querySelector('.language').appendChild(li)
+     li.style.backgroundColor=`${color()}`;
+     li.style.color="white"
+     
+
+
+}
+addLanguage("dart")
+addLanguage("rust")
+addLanguage("c")
+addLanguage("dart")
+
+
+function color(){
+    const arr_color=[
+        "Red",
+        "Blue",
+        "Green",
+        "Yellow",
+        "Orange",
+       
+    ];
+    let color1=Math.floor(Math.random() * 5);
+    console.log(color1)
+    return arr_color[color1]
+
+}
+color();
+
+const secondLang = document.querySelector("li:nth-child(2)");
+
+const li = document.createElement("li");
+li.appendChild(document.createTextNode("python"));
+
+secondLang.replaceWith(li);
+
+ 
+
+
+</script>
+</html>

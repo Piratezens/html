@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color:black; color: white;">
+    <div class="parent">
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday <strong style="display:none"> special day</strong></div>
+        <div class="day">Saturday</div>
+    </div>
+
+    <script>
+        const parent=document.querySelector('.parent');
+         console.log(parent);
+        const children = parent.children;
+        console.log(children);
+        children[0].style.color='green';
+        children[0].innerHTML;      
+         console.log(children[5].innerHTML);
+         console.log(children[5].textContent);
+         console.log(children[5].innerText);
+         for(let i=0; i<parent.children.length;i++)
+         {
+            console.log(parent.children[i].innerHTML);
+         }
+        console.log(parent.firstElementChild);
+        
+    </script>
+</body>
+</html>
