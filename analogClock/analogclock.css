@@ -1,59 +1,91 @@
-body {
-    background-color: #f0f0f0;
-    height: 100vh;
-    display: flex;
+ body{
+    background-color:black;
+    color:white;
+    display:flex;
+    height:100vh;
     justify-content: center;
     align-items: center;
-    margin: 0;
-}
 
-#outer {
-    position: relative;
+}
+#outer{
     height: 350px;
-    width: 350px;
-    border: 10px solid black;
-    border-radius: 50%;
-    background-color: white;
-    
-    /* Stacks the center dot and the inner text container directly on top of each other */
-    display: grid;
-    place-items: center;
-}
+     width: 350px;
+     border:6px solid white;
+     border-radius:50%;
+     position:relative;
 
-#center {
-    width: 15px;
-    height: 15px;
-    background-color: black;
-    border-radius: 50%;
-    z-index: 10; /* Keeps the center dot on top of hands later */
 }
-
-#inner {
+#inner{
+    font-size: 25px;
+    font-weight: 600;
     position: absolute;
     width: 100%;
     height: 100%;
-    
-    /* Stacks all span numbers precisely at the center point */
-    display: grid;
-    place-items: center;
 }
-
 #inner span {
-    /* Forces every single number to share the exact same starting slot */
-    grid-area: 1 / 1;
-    
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
 
-    /* 1. Calculate the angle: each index gets multiplied by 30 degrees */
-    /* 2. Subtract 90deg to rotate the grid coordinate system so index 12 points straight UP */
-    --angle: calc((var(--i) * 30deg) - 90deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
 
-    /* 140px is the radius (how far from the absolute center the numbers sit) */
-    transform: translate(
-        calc(cos(var(--angle)) * 140px),
-        calc(sin(var(--angle)) * 140px)
+    --angle:calc(var(--i)*30deg - 90deg);
+    transform:translate(
+        calc(cos(var(--angle))*140px - 50%),
+        calc(sin(var(--angle))*140px - 50%)
+       
     );
 }
+#center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    
+    transform: translate(-50%, -50%);
+}
+#hands {
+    position: absolute;
+    inset: 0;
+}
+
+#hands span {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    border-radius: 10px;
+}
+
+#hours {
+    width: 7px;
+    height: 75px;
+    background-color: white;
+}
+
+#minutes {
+    width: 5px;
+    height: 110px;
+    background-color: white;
+}
+
+#seconds {
+    width: 2px;
+    height: 130px;
+    background-color: red;
+}
+  #rectangular{
+    position:absolute;
+    right:2vw;
+
+  width:450px;
+  height:250px;
+  border:7px solid white;
+  border-radius: 8px;
+  
+
+
+  }

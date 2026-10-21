@@ -1,0 +1,336 @@
+:root {
+    --bg: #161513;
+    --face: #efeae1;
+    --face-shade: #e2dcd0;
+    --ink: #1c1b19;
+    --ink-soft: rgba(28, 27, 25, 0.55);
+    --tick: rgba(28, 27, 25, 0.28);
+    --accent: #d65a31;
+    --size: 380px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:
+        radial-gradient(circle at 50% 40%, #232220 0%, var(--bg) 65%);
+    font-family: "Jost", "Futura", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- Face ---------- */
+#outer {
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 25%, var(--face) 0%, var(--face-shade) 100%);
+    box-shadow:
+        0 0 0 10px #262421,                      /* bezel */
+        0 0 0 11px rgba(255, 255, 255, 0.07),    /* bezel highlight */
+        0 50px 90px rgba(0, 0, 0, 0.6),          /* drop shadow */
+        inset 0 10px 24px rgba(0, 0, 0, 0.07),   /* recessed depth */
+        inset 0 -2px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Fine minute ticks */
+#outer::before,
+/* Hour ticks */
+#outer::after {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+}
+
+#outer::before {
+    background: repeating-conic-gradient(
+        from -0.25deg,
+        var(--tick) 0deg 0.5deg,
+        transparent 0.5deg 6deg
+    );
+    -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 7px), #000 calc(100% - 7px));
+            mask: radial-gradient(closest-side, transparent calc(100% - 7px), #000 calc(100% - 7px));
+}
+
+#outer::after {
+    background: repeating-conic-gradient(
+        from -0.6deg,
+        var(--ink) 0deg 1.2deg,
+        transparent 1.2deg 30deg
+    );
+    -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 14px), #000 calc(100% - 14px));
+            mask: radial-gradient(closest-side, transparent calc(100% - 14px), #000 calc(100% - 14px));
+}
+
+/* ---------- Numerals ---------- */
+#inner {
+    position: absolute;
+    inset: 0;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+}
+
+#inner span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: var(--ink-soft);
+    --angle: calc(var(--i) * 30deg - 90deg);
+    transform: translate(
+        calc(cos(var(--angle)) * 134px - 50%),
+        calc(sin(var(--angle)) * 134px - 50%)
+    );
+}
+
+/* 12 gets the accent */
+#inner span:first-child {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* 3 / 6 / 9 slightly stronger */
+#inner span:nth-child(3n + 1):not(:first-child) {
+    color: var(--ink);
+    font-weight: 500;
+}
+
+/* ---------- Hands ---------- */
+#hands {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+#hands span {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+}
+
+#hours {
+    width: 9px;
+    height: 86px;
+    margin-left: -4.5px;
+    background: var(--ink);
+    border-radius: 2px 2px 6px 6px;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.18);
+}
+
+#minutes {
+    width: 6px;
+    height: 128px;
+    margin-left: -3px;
+    background: var(--ink);
+    border-radius: 2px 2px 5px 5px;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.18);
+}
+
+#seconds {
+    width: 2px;
+    height: 132px;
+    margin-left: -1px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Lollipop tip */
+#seconds::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--face);
+    transform: translateX(-50%);
+}
+
+/* Counterweight tail */
+#seconds::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 2px;
+    height: 34px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* ---------- Center cap ---------- */
+#center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 3px solid var(--accent);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{
+    background-color:black;
+    color:white;
+    display:flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+
+}
+#outer{
+    height: 350px;
+    width: 350px;
+    border:6px solid transparent;   /* ring is drawn by ::before / ::after */
+    border-radius:50%;
+    position:relative;
+    box-shadow: 0 0 30px rgba(0, 140, 255, 0.45),
+                0 0 70px rgba(0, 90, 200, 0.25);
+}
+
+/* ---------- Flowing ocean water ring ---------- */
+#outer::before,
+#outer::after{
+    content:"";
+    position:absolute;
+    inset:-6px;                 /* covers exactly the 6px border area */
+    border-radius:50%;
+    pointer-events:none;
+    /* cut out the middle so only the 6px ring remains */
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
+}
+
+/* deep water current */
+#outer::before{
+    background: conic-gradient(
+        from 0deg,
+        #0077b6, #00b4d8, #023e8a, #48cae4,
+        #0096c7, #03045e, #00b4d8, #0077b6
+    );
+    animation: flow 6s linear infinite;
+}
+
+/* lighter ripples moving the opposite way */
+#outer::after{
+    background: conic-gradient(
+        from 90deg,
+        transparent 0deg, rgba(202, 240, 248, 0.85) 40deg, transparent 90deg,
+        transparent 180deg, rgba(144, 224, 239, 0.7) 230deg, transparent 280deg,
+        transparent 360deg
+    );
+    animation: flow 9s linear infinite reverse;
+}
+
+@keyframes flow{
+    to{ transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce){
+    #outer::before,
+    #outer::after{ animation:none; }
+}
+
+/* ---------- Your original styles (unchanged) ---------- */
+#inner{
+    font-size: 25px;
+    font-weight: 600;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#inner span {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    --angle:calc(var(--i)*30deg - 90deg);
+    transform:translate(
+        calc(cos(var(--angle))*140px - 50%),
+        calc(sin(var(--angle))*140px - 50%)
+       
+    );
+}
+#center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    
+    transform: translate(-50%, -50%);
+}
+#hands {
+    position: absolute;
+    inset: 0;
+}
+
+#hands span {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    border-radius: 10px;
+}
+
+#hours {
+    width: 7px;
+    height: 75px;
+    background-color: white;
+}
+
+#minutes {
+    width: 5px;
+    height: 110px;
+    background-color: white;
+}
+
+#seconds {
+    width: 2px;
+    height: 130px;
+    background-color: red;
+}

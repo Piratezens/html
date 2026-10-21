@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="analogclock.css">
     <title>AnalogClock</title>
+    <script src="analogclock.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="theme" id="outer">
         <div id="inner">
             <!-- Inline variables tell the CSS math how many degrees to push each number -->
-            <span style="--i: 12;">12</span>
+            <span style="--i: 12">12</span>
             <span style="--i: 1;">1</span>
             <span style="--i: 2;">2</span>
             <span style="--i: 3;">3</span>
@@ -24,6 +26,16 @@
             <span style="--i: 11;">11</span>
         </div>
         <div class="theme" id="center"></div>
+        <div id="hands">
+            <span id="hours">     </span>
+            <span id="minutes">   </span>
+            <span id="seconds">   </span>
+        </div>
+    </div>
+    <div id="rectangular">
+        <div id="digital_time">
+
+        </div>
     </div>
 </body>
 </html>
