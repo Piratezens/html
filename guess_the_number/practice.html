@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event_study</title>
+</head>
+<body>
+<div id="divs">
+    <div id="first" class="divs">
+    FIRST DIV
+</div>
+<div id="second"  class="divs">
+    SECOND DIV
+</div>
+<div id="third"  class="divs">
+    THIRD DIV
+
+</div>
+<div id="fourth"  class="divs">
+    FOURTH DIV
+</div>
+
+</div>
+
+    
+</body>
+<style>
+    .divs{
+        height:200px;
+        width:300px;
+        margin:5px;
+        background-color: red;
+    }
+</style>
+<script>
+    const first=document.querySelector('#first');
+first.addEventListener('click',(e)=>
+{
+    console.log(e);
+console.log('it is first div');
+e.stopPropagation();
+},false)
+const second=document.querySelector('#second');
+second.addEventListener('click',(e)=>
+{
+    console.log(e);
+console.log('it is second div');
+
+    
+},true)
+const divs=document.querySelector('#divs');
+divs.addEventListener('click',(e)=>
+{
+    console.log(e);
+    console.log('it is parent');
+},false)
+
+
+
+ </script>
+
+</html>
+   

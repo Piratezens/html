@@ -1,29 +1,32 @@
-const { createElement } = require("react");
-
 const second = document.querySelector('#seconds');
 const minute = document.querySelector('#minutes');
 const hour = document.querySelector('#hours');
+const digitalTime = document.querySelector('#digital_time');
+
+function padWithZero(value) {
+    return String(value).padStart(2, '0');
+}
 
 function updateClock() {
     const time = new Date();
 
-    const gethour = time.getHours();
-    const getminute = time.getMinutes();
-    const getseconds = time.getSeconds();
+    const getHour = time.getHours();
+    const getMinute = time.getMinutes();
+    const getSeconds = time.getSeconds();
 
-    const secondAngle = getseconds * 6;
-    const minuteAngle = getminute * 6 + getseconds * 0.1;
-    const hourAngle = (gethour % 12) * 30 + getminute * 0.5;
+    const secondAngle = getSeconds * 6;
+    const minuteAngle = getMinute * 6 + getSeconds * 0.1;
+    const hourAngle = (getHour % 12) * 30 + getMinute * 0.5;
 
     second.style.transform = `rotate(${secondAngle}deg)`;
     minute.style.transform = `rotate(${minuteAngle}deg)`;
     hour.style.transform = `rotate(${hourAngle}deg)`;
-    timed.innerHTML='<span>`${hour}`</span> <span>`${minute}`</span>'
+
+    if (digitalTime) {
+        digitalTime.textContent = `${padWithZero(getHour)}:${padWithZero(getMinute)}:${padWithZero(getSeconds)}`;
+    }
+    
 }
 
 updateClock();
 setInterval(updateClock, 1000);
-const digital_time=document.querySelector('#digital_time');
-const timed=document.createElement('div')
-timed.style.color='white';
-

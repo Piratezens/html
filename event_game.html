@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect the Target</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 800px;
+            height: 600px;
+            margin: 20px auto;
+            border: 2px solid white;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 1;
+        }
+
+        .target {
+            border: 2px solid white;
+            border-radius: 50%;
+            background-color: darkblue;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+        }
+
+        .play {
+            border: 2px solid darkblue;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="score">Score: 0</div>
+    <div class="target"></div>
+    <div class="play"></div>
+
+    <script>
+        const area = document.body;
+        const scoreDisplay = document.querySelector('#score');
+        const target = document.querySelector('.target');
+        const player = document.querySelector('.play');
+
+        let score = 0;
+
+        const speed = 20;
+
+        let x = (area.clientWidth - player.offsetWidth) / 2;
+        let y = (area.clientHeight - player.offsetHeight) / 2;
+
+        let targetX = 0;
+        let targetY = 0;
+
+        // Apply the player's initial position
+        player.style.left = x + 'px';
+        player.style.top = y + 'px';
+
+        // Place the target at a random position
+        function moveTarget() {
+            const maxTargetX =
+                area.clientWidth - target.offsetWidth;
+
+            const maxTargetY =
+                area.clientHeight - target.offsetHeight;
+
+            do {
+                targetX = Math.floor(
+                    Math.random() * (maxTargetX + 1)
+                );
+
+                targetY = Math.floor(
+                    Math.random() * (maxTargetY + 1)
+                );
+
+            } while (
+                Math.hypot(
+                    x + player.offsetWidth / 2 -
+                    (targetX + target.offsetWidth / 2),
+
+                    y + player.offsetHeight / 2 -
+                    (targetY + target.offsetHeight / 2)
+                ) <
+                (player.offsetWidth + target.offsetWidth) / 2 + 20
+            );
+
+            target.style.left = targetX + 'px';
+            target.style.top = targetY + 'px';
+        }
+
+        // Check whether the circles are touching
+        function checkCollision() {
+            const playerCenterX =
+                x + player.offsetWidth / 2;
+
+            const playerCenterY =
+                y + player.offsetHeight / 2;
+
+            const targetCenterX =
+                targetX + target.offsetWidth / 2;
+
+            const targetCenterY =
+                targetY + target.offsetHeight / 2;
+
+            const dx = playerCenterX - targetCenterX;
+            const dy = playerCenterY - targetCenterY;
+
+            const distance = Math.hypot(dx, dy);
+
+            const touchingDistance =
+                player.offsetWidth / 2 +
+                target.offsetWidth / 2;
+
+            if (distance <= touchingDistance) {
+                score = score + 1;
+
+                scoreDisplay.textContent = `Score: ${score}`;
+
+                moveTarget();
+            }
+        }
+
+        // Give the target its initial position
+        moveTarget();
+
+        // Listen for keyboard input
+        document.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase();
+
+            const maxX =
+                area.clientWidth - player.offsetWidth;
+
+            const maxY =
+                area.clientHeight - player.offsetHeight;
+
+            switch (key) {
+                case 'w':
+                    if (y <= 0) {
+                        break;
+                    }
+
+                    y = y - speed;
+
+                    if (y < 0) {
+                        y = 0;
+                    }
+                    break;
+
+                case 'a':
+                    if (x <= 0) {
+                        break;
+                    }
+
+                    x = x - speed;
+
+                    if (x < 0) {
+                        x = 0;
+                    }
+                    break;
+
+                case 's':
+                    if (y >= maxY) {
+                        break;
+                    }
+
+                    y = y + speed;
+
+                    if (y > maxY) {
+                        y = maxY;
+                    }
+                    break;
+
+                case 'd':
+                    if (x >= maxX) {
+                        break;
+                    }
+
+                    x = x + speed;
+
+                    if (x > maxX) {
+                        x = maxX;
+                    }
+                    break;
+
+                default:
+                    return;
+            }
+
+            player.style.left = x + 'px';
+            player.style.top = y + 'px';
+
+            checkCollision();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Circle with WASD</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .outer_boundary {
+            height: 800px;
+            width: 800px;
+            position: relative;
+            background-color: black;
+        }
+
+        #inner_boundary {
+            position: absolute;
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer_boundary">
+        <div id="inner_boundary"></div>
+    </div>
+
+    <script>
+        const inner = document.querySelector('#inner_boundary');
+        const outer = document.querySelector('.outer_boundary');
+
+        let x = (outer.clientWidth - inner.offsetWidth) / 2;
+        let y = (outer.clientHeight - inner.offsetHeight) / 2;
+
+        const speed = 20;
+
+        
+        inner.style.left = x + 'px';
+        inner.style.top = y + 'px';
+            const maxX = outer.clientWidth - inner.offsetWidth;
+    const maxY = outer.clientHeight - inner.offsetHeight;
+
+        document.addEventListener('keydown', (e) => {
+            if(y<0||x<0||y>=maxY||x>=maxX){
+            x=0;
+            y=0;
+            }
+
+            switch (e.key.toLowerCase()) {
+
+                case 'w':
+                    y = y - speed;
+                    break;
+
+                case 'a':
+                    x = x - speed;
+                    break;
+
+                case 's':
+                    y = y + speed;
+                    break;
+
+                case 'd':
+                    x = x + speed;
+                    break;
+
+                default:
+                    return;
+            }
+
+            
+            inner.style.left = x + 'px';
+            inner.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
